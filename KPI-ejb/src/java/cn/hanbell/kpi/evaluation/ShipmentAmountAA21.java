@@ -23,7 +23,7 @@ public class ShipmentAmountAA21 extends ShipmentAmount {
         queryParams.put("deptno", " '1T000','1T100' ");
         queryParams.put("ogdkid", "RL03");
         queryParams.put("n_code_DA", " ='AA' ");
-        queryParams.put("n_code_CD", " ='WX' ");
+        queryParams.put("n_code_CD", " ='GW' ");
         queryParams.put("n_code_DC", " <> 'SDS' ");
         queryParams.put("n_code_DD", "  in ('00','02') ");
     }
@@ -61,7 +61,6 @@ public class ShipmentAmountAA21 extends ShipmentAmount {
         if (!"".equals(n_code_DD)) {
             sb.append(" and d.n_code_DD ").append(n_code_DD);
         }
-        sb.append(" and h.mancode  in('C2915','C2718')");
         sb.append(" and year(h.shpdate) = ${y} and month(h.shpdate)= ${m} ");
         switch (type) {
             case 2:
@@ -97,7 +96,6 @@ public class ShipmentAmountAA21 extends ShipmentAmount {
         if (!"".equals(n_code_DD)) {
             sb.append(" and d.n_code_DD ").append(n_code_DD);
         }
-          sb.append(" and h.mancode  in('C2915','C2718')");
         sb.append(" and year(h.bakdate) = ${y} and month(h.bakdate)= ${m} ");
         switch (type) {
             case 2:

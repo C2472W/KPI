@@ -76,7 +76,6 @@ public class ShipmentQuantityAA2 extends ShipmentQuantityAA {
                     break;
             }
         }
-        sb.append(" and h.mancode not in('C2915','C2718')");
         sb.append(" and year(h.shpdate) = ${y} and month(h.shpdate)= ${m} ");
         switch (type) {
             case 2:
@@ -123,7 +122,6 @@ public class ShipmentQuantityAA2 extends ShipmentQuantityAA {
                     break;
             }
         }
-        sb.append(" and h.mancode not in('C2915','C2718')");
         sb.append(" and year(h.bakdate) = ${y} and month(h.bakdate)= ${m} ");
         switch (type) {
             case 2:

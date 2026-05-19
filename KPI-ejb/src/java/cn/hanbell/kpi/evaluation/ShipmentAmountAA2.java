@@ -60,7 +60,6 @@ public class ShipmentAmountAA2 extends ShipmentAmount {
         if (!"".equals(n_code_DD)) {
             sb.append(" and d.n_code_DD ").append(n_code_DD);
         }
-        sb.append(" and h.mancode not in('C2915','C2718')");
         sb.append(" and year(h.shpdate) = ${y} and month(h.shpdate)= ${m} ");
         switch (type) {
             case 2:
@@ -96,7 +95,6 @@ public class ShipmentAmountAA2 extends ShipmentAmount {
         if (!"".equals(n_code_DD)) {
             sb.append(" and d.n_code_DD ").append(n_code_DD);
         }
-          sb.append(" and h.mancode not in('C2915','C2718')");
         sb.append(" and year(h.bakdate) = ${y} and month(h.bakdate)= ${m} ");
         switch (type) {
             case 2:

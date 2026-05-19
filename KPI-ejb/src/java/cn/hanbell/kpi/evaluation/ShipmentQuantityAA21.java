@@ -24,7 +24,7 @@ public class ShipmentQuantityAA21 extends ShipmentQuantityAA {
         queryParams.put("facno", "C");
         queryParams.put("deptno", " '1T000','1T100' ");
         queryParams.put("n_code_DA", " ='AA' ");
-        queryParams.put("n_code_CD", " ='WX' ");
+        queryParams.put("n_code_CD", " ='GW' ");
         queryParams.put("n_code_DC", " <> 'SDS' ");
         queryParams.put("n_code_DD", " ='00' ");
     }
@@ -76,7 +76,6 @@ public class ShipmentQuantityAA21 extends ShipmentQuantityAA {
                     break;
             }
         }
-        sb.append(" and h.mancode  in('C2915','C2718')");
         sb.append(" and year(h.shpdate) = ${y} and month(h.shpdate)= ${m} ");
         switch (type) {
             case 2:
@@ -123,7 +122,6 @@ public class ShipmentQuantityAA21 extends ShipmentQuantityAA {
                     break;
             }
         }
-        sb.append(" and h.mancode  in('C2915','C2718')");
         sb.append(" and year(h.bakdate) = ${y} and month(h.bakdate)= ${m} ");
         switch (type) {
             case 2:

@@ -37,8 +37,10 @@ public class ShipmentAmountAAWX extends ShipmentAmount9 {
         BigDecimal a = getSingleValue(y, m, d, type, map);
         //机组零件
         map.remove("n_code_DA");
+        map.remove("n_code_CD");
         map.remove("n_code_DD");
         map.put("n_code_DA", " ='AA'");
+        map.put("n_code_CD", " ='GW'");
         map.put("n_code_DD", " in('01','03','04','05') ");
         BigDecimal b =getSingleValue(y, m, d, type, map);
         return a.add(b);
@@ -79,7 +81,6 @@ public class ShipmentAmountAAWX extends ShipmentAmount9 {
         } else {
             sb.append(" and d.n_code_DD <> 'ZZ' ");
         }
-        sb.append(" and h.mancode in('C2915','C2718')");
         sb.append(" and year(h.shpdate) = ${y} and month(h.shpdate)= ${m} ");
         switch (type) {
             case 2:
@@ -117,7 +118,6 @@ public class ShipmentAmountAAWX extends ShipmentAmount9 {
         } else {
             sb.append(" and d.n_code_DD <> 'ZZ' ");
         }
-        sb.append(" and h.mancode in('C2915','C2718')");
         sb.append(" and year(h.bakdate) = ${y} and month(h.bakdate)= ${m} ");
         switch (type) {
             case 2:
