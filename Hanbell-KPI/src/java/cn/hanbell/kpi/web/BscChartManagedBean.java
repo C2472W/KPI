@@ -63,6 +63,7 @@ public abstract class BscChartManagedBean extends SuperQueryBean<Indicator> {
     protected LineChartModel chartModel;
     protected LineChartModel accumulatedChartModel;
 
+
     protected List<IndicatorAnalysis> analysisList;
     protected List<IndicatorSummary> summaryList;
     protected int analysisCount;
@@ -473,6 +474,7 @@ public abstract class BscChartManagedBean extends SuperQueryBean<Indicator> {
         accumulatedChartModel.setShowPointLabels(true);
         accumulatedChartModel.setBreakOnNull(true);
 
+        
         //根据指标ID加载指标说明、指标分析
         analysisList = indicatorAnalysisBean.findByPIdAndMonth(indicator.getId(), this.getM());//指标分析
         if (analysisList != null) {
@@ -484,6 +486,7 @@ public abstract class BscChartManagedBean extends SuperQueryBean<Indicator> {
         }
 
     }
+  
 
     public LineChartModel initLineChartModel(String xTitle, String yTitle) {
         Axis yAxis;
@@ -733,6 +736,7 @@ public abstract class BscChartManagedBean extends SuperQueryBean<Indicator> {
     public LineChartModel getChartModel() {
         return chartModel;
     }
+    
 
     /**
      * @return the accumulativeChartModel
@@ -776,4 +780,5 @@ public abstract class BscChartManagedBean extends SuperQueryBean<Indicator> {
     public void setMonthchecked(boolean monthchecked) {
         this.monthchecked = monthchecked;
     }
+
 }

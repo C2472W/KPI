@@ -351,6 +351,11 @@
             <redirect/>
         </navigation-case>
         <navigation-case>
+            <from-outcome>clientrankingvhb</from-outcome>
+            <to-view-id>/app/bsc/clientrankingvhb.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>castingratehs</from-outcome>
             <to-view-id>/app/bsc/castingratehs.xhtml</to-view-id>
             <redirect/>
@@ -358,6 +363,16 @@
         <navigation-case>
             <from-outcome>complaintssheet</from-outcome>
             <to-view-id>/app/bsc/complaintssheet.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+		<navigation-case>
+            <from-outcome>complaintsServicesheet</from-outcome>
+            <to-view-id>/app/bsc/complaintsServicesheet.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+	<navigation-case>
+            <from-outcome>complaintsAHsheet</from-outcome>
+            <to-view-id>/app/bsc/complaintsAHsheet.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         <navigation-case>
@@ -524,6 +539,11 @@
             <from-outcome>shipmentsheet</from-outcome>
             <to-view-id>/app/bsc/shipmentsheet.xhtml</to-view-id>
             <redirect/>
+        </navigation-case>       
+        <navigation-case>
+            <from-outcome>shipmentsheetServerBSC</from-outcome>
+            <to-view-id>/app/bsc/shipmentsheetServerBSC.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
         <navigation-case>
             <from-outcome>turnoverdays</from-outcome>
@@ -550,7 +570,7 @@
             <to-view-id>/app/bsc/scorecardbsc.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
-       <navigation-case>
+        <navigation-case>
             <from-outcome>policysheet</from-outcome>
             <to-view-id>/app/bsc/policysheet.xhtml</to-view-id>
             <redirect/>
@@ -616,7 +636,7 @@
             <to-view-id>/app/ppem/personscorecard.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
-             <navigation-case>
+        <navigation-case>
             <from-outcome>noAssessed</from-outcome>
             <to-view-id>/app/ppem/other/noAssessed.xhtml</to-view-id>
             <redirect/>

@@ -13,17 +13,12 @@ import cn.hanbell.kpi.entity.IndicatorDetail;
 import cn.hanbell.kpi.entity.RoleGrantModule;
 import cn.hanbell.util.BaseLib;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -40,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ShoppingCenterMaterialAmountReportBean extends FinancingFreeServiceReportBean {
 
     protected final DecimalFormat percentFormat;
+    protected final DecimalFormat decFormat;
     private List<Indicator> indicatorList;
     private List<Indicator> firstList;
     private Date btndate;
@@ -63,6 +59,7 @@ public class ShoppingCenterMaterialAmountReportBean extends FinancingFreeService
     public ShoppingCenterMaterialAmountReportBean() {
         super();
         this.percentFormat = new DecimalFormat("#0.00％");
+        this.decFormat = new DecimalFormat("#,##0");
     }
 
     @PostConstruct
@@ -85,6 +82,8 @@ public class ShoppingCenterMaterialAmountReportBean extends FinancingFreeService
                 }
             }
         }
+        BigDecimal a =new BigDecimal(0);
+//        a.doubleValue()
         btndate = settlementDate().getTime();
 
         btnquery();
@@ -99,7 +98,14 @@ public class ShoppingCenterMaterialAmountReportBean extends FinancingFreeService
             Field f;
             String mon = indicatorBean.getIndicatorColumn("N", m);
             Double a1 = 0.0, a2 = 0.0, a3 = 0.0, a4 = 0.0, a5 = 0.0, a6 = 0.0, a7 = 0.0, b1 = 0.0;
+            Collections.sort(indicatorList, new Comparator<Indicator>() {
+                @Override
+                public int compare(Indicator o1, Indicator o2) {
+                    return o2.getActualIndicator().getNfy().compareTo(o1.getActualIndicator().getNfy());//倒序
+                }
 
+            });
+            BigDecimal a=BigDecimal.ZERO;
             for (Indicator indicator : indicatorList) {
                 indicator.setCategory(m + "月");
                 indicator.setCategoryId(m);
@@ -218,9 +224,9 @@ public class ShoppingCenterMaterialAmountReportBean extends FinancingFreeService
 
     public String format(BigDecimal value, BigDecimal rate) {
         if (BigDecimal.ZERO.equals(value)) {
-            return "0.00";
+            return "0";
         }
-        return decimalFormat.format(value.divide(rate));
+        return decFormat.format(value.divide(rate));
     }
 
     public List<Indicator> getIndicatorList() {

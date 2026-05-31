@@ -86,8 +86,6 @@ public class PersonSet extends SuperEntity {
     private String assessmentmethod;
     @Column(name = "isadministrative")
     private Boolean isadministrative;
-        @Column(name = "ishundred")
-    private Boolean ishundred;
     @Column(name = "coefficient")
     private Double coefficient;
     @Size(max = 50)
@@ -98,6 +96,13 @@ public class PersonSet extends SuperEntity {
     private String classscorecard;
     @Column(name = "percentage")
     private BigDecimal percentage;
+    
+    @Column(name = "minscore")
+    private BigDecimal minscore;
+    @Column(name = "maxscore")
+    private BigDecimal maxscore;
+
+
     
     @JoinColumn(name = "assessmentmethod", referencedColumnName = "formid", updatable = false, insertable = false)
     @ManyToOne(optional = true)
@@ -130,7 +135,7 @@ public class PersonSet extends SuperEntity {
         this.status = status;
         this.creator = creator;
         this.credate = new Date();
-        this.coefficient=0.0;
+        this.coefficient=1.0;
     }
 
     public String getFacno() {
@@ -229,13 +234,6 @@ public class PersonSet extends SuperEntity {
         this.isadministrative = isadministrative;
     }
 
-    public Boolean getIshundred() {
-        return ishundred;
-    }
-
-    public void setIshundred(Boolean ishundred) {
-        this.ishundred = ishundred;
-    }
 
     public Double getCoefficient() {
         return coefficient;
@@ -275,6 +273,22 @@ public class PersonSet extends SuperEntity {
 
     public void setPersonscorecardway(PersonScorecardWay personscorecardway) {
         this.personscorecardway = personscorecardway;
+    }
+
+    public BigDecimal getMinscore() {
+        return minscore;
+    }
+
+    public void setMinscore(BigDecimal minscore) {
+        this.minscore = minscore;
+    }
+
+    public BigDecimal getMaxscore() {
+        return maxscore;
+    }
+
+    public void setMaxscore(BigDecimal maxscore) {
+        this.maxscore = maxscore;
     }
     
     
